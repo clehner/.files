@@ -26,6 +26,9 @@ set scrolloff=3
 " show invisibles
 set listchars=tab:‣\ ,trail:·
 
+" automatically reload files
+set autoread
+
 " default indentation
 set expandtab
 set tabstop=2
