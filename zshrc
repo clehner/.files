@@ -2,9 +2,9 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK
 export SCALA_HOME=/opt/local/share/scala-2.9
 
 # MacPorts
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
+path=(/opt/local/bin /opt/local/sbin /usr/local/mysql/bin $path)
 
-PATH="$HOME/bin:$PATH"
+path=(~/bin $path)
 
 export EDITOR=vim
 
