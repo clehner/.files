@@ -1,5 +1,5 @@
-JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
-SCALA_HOME=/opt/local/share/scala-2.8
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+export SCALA_HOME=/opt/local/share/scala-2.9
 
 # MacPorts
 PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
