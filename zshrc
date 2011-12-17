@@ -18,7 +18,12 @@ setopt autocd
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.history
+setopt hist_verify # confirm substitutions
+setopt share_history # share between concurrent sessions
+# setopt hist_ignore_all_dups # ignore duplicates
+setopt hist_reduce_blanks
 
+# prompt with VCS information
 autoload -Uz vcs_info && vcs_info
 
 typeset -A COLOR
