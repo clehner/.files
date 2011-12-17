@@ -73,6 +73,10 @@ chpwd () {
 }
 chpwd
 
+# report time for long running jobs
+REPORTTIME=5
+TIMEFMT=$'\e[38;5;125mtime for %J:\e[0m %E real %U user %S system %P'
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' expand suffix
