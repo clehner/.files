@@ -6,7 +6,10 @@ PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
 
 PATH="$HOME/bin:$PATH"
 
-EDITOR="subl -w"
+export EDITOR=vim
+
+# emacs keybindings
+bindkey -e
 
 # expand prompt
 setopt PROMPT_SUBST
