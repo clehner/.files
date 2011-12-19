@@ -31,51 +31,49 @@ setopt share_history # share between concurrent sessions
 setopt hist_reduce_blanks
 
 # prompt with VCS information
-autoload -Uz vcs_info && vcs_info
+function () {
+  autoload -Uz vcs_info && vcs_info
 
-typeset -A COLOR
-COLOR=(
-	base03  $'%{\e[38;5;234m%}'
-	base02  $'%{\e[38;5;235m%}'
-	base01  $'%{\e[38;5;240m%}'
-	base00  $'%{\e[38;5;241m%}'
-	base0   $'%{\e[38;5;244m%}'
-	base1   $'%{\e[38;5;245m%}'
-	base2   $'%{\e[38;5;254m%}'
-	base3   $'%{\e[38;5;230m%}'
-	yellow  $'%{\e[38;5;136m%}'
-	orange  $'%{\e[38;5;166m%}'
-	red     $'%{\e[38;5;160m%}'
-	magenta $'%{\e[38;5;125m%}'
-	violet  $'%{\e[38;5;61m%}'
-	blue    $'%{\e[38;5;33m%}'
-	cyan    $'%{\e[38;5;37m%}'
-	green   $'%{\e[38;5;64m%}'
+  typeset -A COLOR
+  COLOR=(
+    base03  $'%{\e[38;5;234m%}'
+    base02  $'%{\e[38;5;235m%}'
+    base01  $'%{\e[38;5;240m%}'
+    base00  $'%{\e[38;5;241m%}'
+    base0   $'%{\e[38;5;244m%}'
+    base1   $'%{\e[38;5;245m%}'
+    base2   $'%{\e[38;5;254m%}'
+    base3   $'%{\e[38;5;230m%}'
+    yellow  $'%{\e[38;5;136m%}'
+    orange  $'%{\e[38;5;166m%}'
+    red     $'%{\e[38;5;160m%}'
+    magenta $'%{\e[38;5;125m%}'
+    violet  $'%{\e[38;5;61m%}'
+    blue    $'%{\e[38;5;33m%}'
+    cyan    $'%{\e[38;5;37m%}'
+    green   $'%{\e[38;5;64m%}'
 
-	bold    $'%{\e[1m%}'
-	no-bold $'%{\e[22m%}'
-	reset   $'%{\e[0m%}'
-)
+    bold    $'%{\e[1m%}'
+    no-bold $'%{\e[22m%}'
+    reset   $'%{\e[0m%}'
+  )
+  PS1=''                                               # NON-GIT  GIT
+  PS1+="$COLOR[red]\$vcs_info_msg_0_"                  #          repo name
+  PS1+="$COLOR[orange]\${\${vcs_info_msg_1_:-%~}:#/.}" # path     subdir
+  PS1+="$COLOR[reset]\${vcs_info_msg_2_:+@}"           #          @
+  PS1+="$COLOR[blue]\$vcs_info_msg_2_"                 #          branch
+  PS1+="$COLOR[reset]%# "                              # % or #   % or #
 
-zstyle ':vcs_info:*' enable git
+  RPS1="\$(date '+[%H:%M:%S]')"
+  precmd () { vcs_info }
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' max-exports 3
+  zstyle ':vcs_info:*' formats '%r' '/%S' '%b'
+  zstyle ':vcs_info:*' actionformats '%r' '/%S' '%b|%a'
+}
 
-precmd () { vcs_info }
-
-zstyle ':vcs_info:*' max-exports 3
-zstyle ':vcs_info:*' formats '%r' '/%S' '%b'
-zstyle ':vcs_info:*' actionformats '%r' '/%S' '%b|%a'
-
-PS1=''                                             # NON-GIT  GIT
-PS1+='$COLOR[red]$vcs_info_msg_0_'                 #          repo name
-PS1+='$COLOR[orange]${${vcs_info_msg_1_:-%~}:#/.}' # path     subdir
-PS1+='$COLOR[reset]${vcs_info_msg_2_:+@}'          #          @
-PS1+='$COLOR[blue]$vcs_info_msg_2_'                #          branch
-PS1+='$COLOR[reset]%# '                            # % or #   % or #
-
-RPS1=$'%{\e[0m%}$(date "+[%H:%M:%S]")'
-
+# set the terminal title to the CWD
 chpwd () {
-	# set the terminal title to the CWD
 	print -Pn '\e]0;${PWD/$HOME/~}\a'
 }
 chpwd
