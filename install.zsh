@@ -11,11 +11,12 @@ show git submodule update --init
 
 # install symlinks in ~
 links=(
+  git-completion.sh
+  gitignore
+  gvimrc
   vim
   vimrc
-  gvimrc
   zshrc
-  git-completion.sh
 )
 
 for link in $links; do
