@@ -23,8 +23,9 @@ set incsearch " incremental search
 " keep space around the cursor
 set scrolloff=3
 
-" show invisibles
-set listchars=tab:‣\ ,trail:·
+" invisible characters
+set list
+set listchars=tab:‣\ ,trail:· " show tabs and trailing spaces
 
 " automatically reload files
 set autoread
