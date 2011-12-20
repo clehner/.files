@@ -27,8 +27,8 @@ SAVEHIST=1000
 HISTFILE=~/.history
 setopt hist_verify # confirm substitutions
 setopt share_history # share between concurrent sessions
-# setopt hist_ignore_all_dups # ignore duplicates
-setopt hist_reduce_blanks
+setopt hist_reduce_blanks # compress whitespace
+setopt hist_ignore_all_dups # ignore duplicates
 
 # prompt with VCS information
 function () {
@@ -74,7 +74,7 @@ function () {
 
 # set the terminal title to the CWD
 chpwd () {
-	print -Pn '\e]0;${PWD/$HOME/~}\a'
+  print -Pn '\e]0;${PWD/$HOME/~}\a'
 }
 chpwd
 
@@ -83,7 +83,6 @@ REPORTTIME=5
 TIMEFMT=$'\e[38;5;125mtime for %J:\e[0m %E real %U user %S system %P'
 
 # The following lines were added by compinstall
-
 zstyle ':completion:*' expand suffix
 zstyle ':completion:*' format 'Completing %d...'
 zstyle ':completion:*' insert-unambiguous false
