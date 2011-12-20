@@ -29,6 +29,10 @@ set listchars=tab:‣\ ,trail:·
 " automatically reload files
 set autoread
 
+" keep swap files from cluttering directories
+" // makes vim to use the full path for the filename
+set directory=~/.vim/swap//
+
 " default indentation
 set expandtab
 set tabstop=2
