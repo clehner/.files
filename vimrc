@@ -66,6 +66,9 @@ set relativenumber
 " display position in file
 set ruler
 
+" show partial commands
+set showcmd
+
 " navigate windows with ctrl+direction
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
