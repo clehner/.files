@@ -15,6 +15,8 @@ export EDITOR=vim
 # emacs keybindings
 bindkey -e
 
+bindkey ' ' magic-space # expand history with space
+
 # expand prompt
 setopt PROMPT_SUBST
 
