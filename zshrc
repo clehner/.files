@@ -30,33 +30,38 @@ setopt share_history # share between concurrent sessions
 setopt hist_reduce_blanks # compress whitespace
 setopt hist_ignore_all_dups # ignore duplicates
 
+typeset -A solarized
+solarized=(
+  base03  $'\e[1;30m'
+  base02  $'\e[0;30m'
+  base01  $'\e[1;32m'
+  base00  $'\e[1;33m'
+  base0   $'\e[1;34m'
+  base1   $'\e[1;36m'
+  base2   $'\e[0;37m'
+  base3   $'\e[1;37m'
+  yellow  $'\e[0;33m'
+  orange  $'\e[1;31m'
+  red     $'\e[0;31m'
+  magenta $'\e[0;35m'
+  violet  $'\e[1;35m'
+  blue    $'\e[0;34m'
+  cyan    $'\e[0;36m'
+  green   $'\e[0;32m'
+
+  reset   $'\e[0m'
+)
+
 # prompt with VCS information
 function () {
   autoload -Uz vcs_info && vcs_info
 
+  # wrap solarized colors in %{ and %} pairs for usage in the prompt
   typeset -A COLOR
-  COLOR=(
-    base03  $'%{\e[38;5;234m%}'
-    base02  $'%{\e[38;5;235m%}'
-    base01  $'%{\e[38;5;240m%}'
-    base00  $'%{\e[38;5;241m%}'
-    base0   $'%{\e[38;5;244m%}'
-    base1   $'%{\e[38;5;245m%}'
-    base2   $'%{\e[38;5;254m%}'
-    base3   $'%{\e[38;5;230m%}'
-    yellow  $'%{\e[38;5;136m%}'
-    orange  $'%{\e[38;5;166m%}'
-    red     $'%{\e[38;5;160m%}'
-    magenta $'%{\e[38;5;125m%}'
-    violet  $'%{\e[38;5;61m%}'
-    blue    $'%{\e[38;5;33m%}'
-    cyan    $'%{\e[38;5;37m%}'
-    green   $'%{\e[38;5;64m%}'
+  for name in ${(k)solarized}; do
+    COLOR[$name]="%{${solarized[$name]}%}"
+  done
 
-    bold    $'%{\e[1m%}'
-    no-bold $'%{\e[22m%}'
-    reset   $'%{\e[0m%}'
-  )
   PS1=''                                               # NON-GIT  GIT
   PS1+="$COLOR[red]\$vcs_info_msg_0_"                  #          repo name
   PS1+="$COLOR[orange]\${\${vcs_info_msg_1_:-%~}:#/.}" # path     subdir
