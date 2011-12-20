@@ -27,6 +27,12 @@ set scrolloff=3
 set list
 set listchars=tab:‣\ ,trail:· " show tabs and trailing spaces
 
+" handling of long lines
+set nowrap
+set listchars+=precedes:←,extends:→
+set sidescroll=1 " scroll horizontally in 1 character steps
+set sidescrolloff=10 " keep some space on the side
+
 " automatically reload files
 set autoread
 
