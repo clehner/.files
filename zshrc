@@ -10,15 +10,16 @@ path=(/opt/local/bin /opt/local/sbin /usr/local/mysql/bin $path)
 
 path=(~/bin $path)
 
+# autoload all functions in ~/.zsh/functions
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+
 export EDITOR=vim
 
 # emacs keybindings
 bindkey -e
 
 bindkey ' ' magic-space # expand history with space
-
-# expand prompt
-setopt PROMPT_SUBST
 
 # CD into directories by just typing the directory
 setopt autocd
@@ -56,6 +57,9 @@ solarized=(
 
 # prompt with VCS information
 function () {
+  # expand prompt
+  setopt PROMPT_SUBST
+
   autoload -Uz vcs_info && vcs_info
 
   # wrap solarized colors in %{ and %} pairs for usage in the prompt
