@@ -40,19 +40,18 @@ function () {
 
   autoload -Uz vcs_info && vcs_info
 
-  # wrap solarized colors in %{ and %} pairs for usage in the prompt
-  typeset -A COLOR
   solarized-init
+  # wrap colors in %{ and %} pairs and assign to local vars
   for name in ${(k)solarized}; do
-    COLOR[$name]="%{${solarized[$name]}%}"
+    eval "typeset $name='%{${solarized[$name]}%}'"
   done
 
-  PS1=''                                               # NON-GIT  GIT
-  PS1+="$COLOR[red]\$vcs_info_msg_0_"                  #          repo name
-  PS1+="$COLOR[orange]\${\${vcs_info_msg_1_:-%~}:#/.}" # path     subdir
-  PS1+="$COLOR[reset]\${vcs_info_msg_2_:+@}"           #          @
-  PS1+="$COLOR[blue]\$vcs_info_msg_2_"                 #          branch
-  PS1+="$COLOR[reset]%# "                              # % or #   % or #
+  PS1=''                                        # NON-GIT  GIT
+  PS1+="$red\$vcs_info_msg_0_"                  #          repo name
+  PS1+="$orange\${\${vcs_info_msg_1_:-%~}:#/.}" # path     subdir
+  PS1+="$reset\${vcs_info_msg_2_:+@}"           #          @
+  PS1+="$blue\$vcs_info_msg_2_"                 #          branch
+  PS1+="$reset%# "                              # % or #   % or #
 
   RPS1="\$(date '+[%H:%M:%S]')"
   precmd () { vcs_info }
