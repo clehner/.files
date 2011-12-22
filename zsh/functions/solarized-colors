@@ -1,0 +1,4 @@
+# vim: filetype=zsh:
+for name in ${(ko)solarized}; do
+  print $solarized[$name]$name$solarized[reset]
+done

@@ -33,28 +33,6 @@ setopt share_history # share between concurrent sessions
 setopt hist_reduce_blanks # compress whitespace
 setopt hist_ignore_all_dups # ignore duplicates
 
-typeset -A solarized
-solarized=(
-  base03  $'\e[1;30m'
-  base02  $'\e[0;30m'
-  base01  $'\e[1;32m'
-  base00  $'\e[1;33m'
-  base0   $'\e[1;34m'
-  base1   $'\e[1;36m'
-  base2   $'\e[0;37m'
-  base3   $'\e[1;37m'
-  yellow  $'\e[0;33m'
-  orange  $'\e[1;31m'
-  red     $'\e[0;31m'
-  magenta $'\e[0;35m'
-  violet  $'\e[1;35m'
-  blue    $'\e[0;34m'
-  cyan    $'\e[0;36m'
-  green   $'\e[0;32m'
-
-  reset   $'\e[0m'
-)
-
 # prompt with VCS information
 function () {
   # expand prompt
@@ -64,6 +42,7 @@ function () {
 
   # wrap solarized colors in %{ and %} pairs for usage in the prompt
   typeset -A COLOR
+  solarized-init
   for name in ${(k)solarized}; do
     COLOR[$name]="%{${solarized[$name]}%}"
   done

@@ -16,6 +16,7 @@ links=(
   gvimrc
   vim
   vimrc
+  zsh
   zshrc
 )
 
