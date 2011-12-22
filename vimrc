@@ -10,6 +10,10 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 
+" enable modeline for all setups
+" vim shipped with OSX has it disabled by default
+set modeline modelines=5
+
 " show all possible completions
 set wildmenu
 set wildmode=list:longest
