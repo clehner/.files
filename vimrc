@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 " My bundles
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'michaeljsmith/vim-indent-object'
 
 " enable modeline for all setups
 " vim shipped with OSX has it disabled by default
