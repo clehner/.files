@@ -1,17 +1,16 @@
-links=gitignore gvimrc vim vimrc zsh zshrc
+symlinks=gitignore gvimrc vim vimrc zsh zshrc
 
+all: update-submodules
 
-all: build
+install: all $(symlinks)
 
-build: update-submodules
-
-install: build $(links)
-
+clean:
+	rm -f bin/getctime
 
 update-submodules:
 	git submodule update --init
 
-$(links):
-	ln -sfh $$(pwd)/$@ ~/.$@
+$(symlinks):
+	ln -sfh ${PWD}/$@ ~/.$@
 
-.PHONY: $(links)
+.PHONY: $(symlinks)
