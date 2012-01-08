@@ -11,6 +11,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'michaeljsmith/vim-indent-object'
 
+filetype plugin indent on
+
 " enable modeline for all setups
 " vim shipped with OSX has it disabled by default
 set modeline modelines=5
