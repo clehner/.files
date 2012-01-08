@@ -1,4 +1,4 @@
-symlinks=gitignore gvimrc vim vimrc zsh zshrc
+symlinks=gitignore gvimrc tmux.conf vim vimrc zsh zshrc
 
 all: update-submodules
 
