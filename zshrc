@@ -55,9 +55,9 @@ bindkey ' ' magic-space # expand history with space
 # CD into directories by just typing the directory
 setopt autocd
 
-# history
-HISTSIZE=1000
-SAVEHIST=1000
+# history settings
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.history
 setopt hist_verify # confirm substitutions
 setopt share_history # share between concurrent sessions
