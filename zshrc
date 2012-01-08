@@ -5,6 +5,33 @@ alias port-upgrade='sudo port -u upgrade outdated && say port upgrade completed'
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 export SCALA_HOME=/opt/local/share/scala-2.9
 
+# colors for ls
+function () {
+  # a black
+  # b red
+  # c green
+  # d yellow
+  # e blue
+  # f magenta
+  # g cyan
+  # h white
+  local parts
+  parts=(
+    ex # directory
+    dx # symbolic link
+    hx # socket
+    hx # pipe
+    bx # executable
+    hx # block special
+    hx # character special
+    bx # executable with setuid bit set
+    bx # executable with setgid bit set
+    ex # directory writable to others, with sticky bit
+    ex # directory writable to others, without sticky bit
+  )
+  export CLICOLOR=1
+  export LSCOLORS=${(j::)parts}
+}
 
 path=(
   ~/bin
