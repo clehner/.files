@@ -5,10 +5,14 @@ alias port-upgrade='sudo port -u upgrade outdated && say port upgrade completed'
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 export SCALA_HOME=/opt/local/share/scala-2.9
 
-# MacPorts
-path=(/opt/local/bin /opt/local/sbin /usr/local/mysql/bin $path)
 
-path=(~/bin $path)
+path=(
+  ~/bin
+  /opt/local/bin
+  /opt/local/sbin
+  /usr/local/mysql/bin
+  $path
+)
 
 # autoload all functions in ~/.zsh/functions
 fpath=(~/.zsh/functions $fpath)
