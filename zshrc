@@ -4,6 +4,14 @@ alias port-upgrade='sudo port -u upgrade outdated && say port upgrade completed'
 
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 export SCALA_HOME=/opt/local/share/scala-2.9
+path=(
+  ~/bin
+  /opt/local/bin
+  /opt/local/sbin
+  /usr/local/mysql/bin
+  $path
+)
+export EDITOR=vim
 
 # colors for ls
 function () {
@@ -33,19 +41,9 @@ function () {
   export LSCOLORS=${(j::)parts}
 }
 
-path=(
-  ~/bin
-  /opt/local/bin
-  /opt/local/sbin
-  /usr/local/mysql/bin
-  $path
-)
-
 # autoload all functions in ~/.zsh/functions
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
-
-export EDITOR=vim
 
 # emacs keybindings
 bindkey -e
