@@ -9,6 +9,7 @@ path=(
   /opt/local/bin
   /opt/local/sbin
   /usr/local/mysql/bin
+  /opt/local/share/luarocks/bin
   $path
 )
 export EDITOR=vim
