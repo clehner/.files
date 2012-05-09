@@ -63,7 +63,9 @@ set formatoptions+=l " dont wrap already long lines
 
 " 80 column lines
 set textwidth=80
-set colorcolumn=+1
+if exists("&colorcolumn")
+  set colorcolumn=+1
+endif
 
 " split behaviour
 set splitright " create new windows in reading direction
@@ -75,7 +77,11 @@ autocmd VimResized * exe "normal! \<c-w>="
 set laststatus=2
 
 " relative line numbers
-set relativenumber
+if exists("&relativenumber")
+  set relativenumber
+else
+  set number
+endif
 
 " display position in file
 set ruler
