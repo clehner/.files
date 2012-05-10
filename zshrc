@@ -83,7 +83,7 @@ function () {
   PS1+="$blue\$vcs_info_msg_2_"                 #          branch
   PS1+="$reset%# "                              # % or #   % or #
 
-  RPS1="$base01\$(date '+[%H:%M:%S]')$reset"
+  RPS1="${base01}[%m - \$(date '+%H:%M:%S')]$reset"
   precmd () { vcs_info }
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' max-exports 3
