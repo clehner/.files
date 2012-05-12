@@ -1,6 +1,11 @@
 alias port-selfupdate='sudo port selfupdate && port list outdated \
   && say port selfupdate completed'
 alias port-upgrade='sudo port -u upgrade outdated && say port upgrade completed'
+alias port-leaves='port echo leaves'
+alias port-uninstall-leaves='sudo port uninstall leaves'
+function port-depends () {
+  port echo installed and depends:$1
+}
 
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 export SCALA_HOME=/opt/local/share/scala-2.9
