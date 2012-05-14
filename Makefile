@@ -18,6 +18,6 @@ update-submodules:
 	git submodule update --init
 
 $(symlinks):
-	ln -sfh ${PWD}/$@ ~/.$@
+	ln -sf ${PWD}/$@ ~/.$@
 
 .PHONY: $(symlinks)
