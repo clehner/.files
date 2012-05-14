@@ -1,3 +1,7 @@
+if [[ -a /home/engshare/admin/scripts/master.zshrc ]]; then
+  source /home/engshare/admin/scripts/master.zshrc
+fi
+
 alias port-selfupdate='sudo port selfupdate && port list outdated \
   && say port selfupdate completed'
 alias port-upgrade='sudo port -u upgrade outdated && say port upgrade completed'
