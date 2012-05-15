@@ -1,5 +1,5 @@
 [core]
-  excludesfile = /Users/kassens/.gitignore
+  excludesfile = ~/.gitignore
   editor = vim
 [alias]
   st = status
