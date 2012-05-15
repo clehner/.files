@@ -1,1 +1,2 @@
-ssh devrs
+# connect to devrs and also set up a reverse connection for rmate
+ssh -R 52698:127.0.0.1:52698 devrs
