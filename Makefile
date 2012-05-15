@@ -1,4 +1,5 @@
-symlinks  = gitconfig
+symlinks  = bin
+symlinks += gitconfig
 symlinks += gitignore
 symlinks += gvimrc
 symlinks += tmux.conf
@@ -18,6 +19,7 @@ update-submodules:
 	git submodule update --init
 
 $(symlinks):
-	ln -sf ${PWD}/$@ ~/.$@
+	rm -rf ~/.$@
+	ln -s ${PWD}/$@ ~/.$@
 
 .PHONY: $(symlinks)

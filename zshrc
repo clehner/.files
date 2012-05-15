@@ -15,6 +15,7 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK
 export SCALA_HOME=/opt/local/share/scala-2.9
 path=(
   ~/bin
+  ~/.bin
   /opt/local/bin
   /opt/local/sbin
   /usr/local/mysql/bin
