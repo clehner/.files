@@ -125,3 +125,7 @@ zstyle :compinstall filename '/Users/kassens/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+path=(~/Code/bolt_tools $path)
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
