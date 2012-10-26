@@ -1,27 +1,26 @@
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
+	excludesfile = ~/.gitignore
+	quotepath = false
+	editor = vim
+
 [alias]
-  st = status
-  ci = commit
-  co = checkout
-  br = branch
-  cp = cherry-pick
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
-  f = fetch
-  d = diff
-  ru = remote update
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	cp = cherry-pick
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+	f = fetch
+	d = diff
+	ru = remote update
+
 [color]
-  ui = auto
+	ui = auto
+
 [user]
-  name = Jan Kassens
-  email = jan@kassens.net
-[merge]
-  tool = opendiff
-  conflictstyle = diff3
-[mergetool]
-  keepBackup = false
-[mergetool "diff3"]
-  cmd = diff3
-[difftool]
-  prompt = false
+	name = Charles Lehner
+	email = celehner1@gmail.com
+
+[branch "master"]
+	merge = refs/heads/master
+	remote = origin

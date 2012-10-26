@@ -1,0 +1,35 @@
+ExitOnForwardFailure yes
+
+Host home
+	HostName www.lehnerstudios.com
+	User cel
+	Port 323
+
+Host cel
+	HostName celehner.com
+	User cel
+
+Host mb
+	HostName dev.celehner.com
+	User clehner11
+
+Host imac
+    User clehner
+    Port 324
+    HostName www.lehnerstudios.com
+
+Host sdf
+	User clehner
+	HostName sdf.org
+
+Host cycle1
+	User clehner
+	HostName cycle1.csug.rochester.edu
+
+Host cycle2
+	User clehner
+	HostName cycle2.csug.rochester.edu
+
+Host cs cycle3
+	User clehner
+	HostName cycle3.csug.rochester.edu

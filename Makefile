@@ -1,19 +1,16 @@
-symlinks  = bin
-symlinks += gitconfig
-symlinks += gitignore
-symlinks += gvimrc
-symlinks += tmux.conf
-symlinks += vim
-symlinks += vimrc
-symlinks += zsh
-symlinks += zshrc
+symlinks = bin \
+	gitconfig \
+	gitignore \
+	screenrc \
+	vim \
+	gvimrc \
+	vimrc \
+	ssh/authorized_keys \
+	ssh/config
 
 all: update-submodules
 
 install: all $(symlinks)
-
-clean:
-	rm -f bin/getctime
 
 update-submodules:
 	git submodule update --init
