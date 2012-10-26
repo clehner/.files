@@ -1,4 +1,4 @@
-symlinks = bin \
+symlinks = \
 	gitconfig \
 	gitignore \
 	screenrc \
