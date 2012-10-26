@@ -1,25 +1,8 @@
 set nocompatible
 
-" Vundle setup
-filetype off " required by Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
-Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'michaeljsmith/vim-indent-object'
-
-" snipmate and dependencies
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
-
-" git support
-Bundle 'tpope/vim-fugitive'
-
 filetype plugin indent on
+
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 " enable modeline for all setups
 " vim shipped with OSX has it disabled by default
@@ -39,11 +22,12 @@ set incsearch " incremental search
 set scrolloff=3
 
 " invisible characters
-set list
+"set list
 set listchars=tab:‣\ ,trail:· " show tabs and trailing spaces
 
 " handling of long lines
 set nowrap
+"set wrap
 set listchars+=precedes:←,extends:→
 set sidescroll=1 " scroll horizontally in 1 character steps
 set sidescrolloff=10 " keep some space on the side
@@ -53,15 +37,16 @@ set autoread
 
 " keep swap files from cluttering directories
 " // makes vim to use the full path for the filename
-set directory=~/.vim/swap//
+"set directory=~/.vim/swap/
 
 " default indentation
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set noexpandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set shiftround " round indentation for > and < commands
 set autoindent " retain indentation level
+set smartindent
 
 " behaviour of auto formatting
 set formatoptions+=r " insert comment leader after <Enter> in insert mode
@@ -103,7 +88,30 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Use the arrows to do something useful
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+" Set leader to ,
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" netbeans
+noremap <c-s> :nbs<cr>
+
+" Allow unsaved hidden buffers
+set hidden
+
 " colors!
 syntax on
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+
+" Use Q for formattting, not ex
+map Q gq
+
+" Start Pathogen
+call pathogen#infect()
