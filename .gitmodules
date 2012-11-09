@@ -3,7 +3,7 @@
 	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = git@github.com:clehner/syntastic.git
+	url = git://github.com:clehner/syntastic.git
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
