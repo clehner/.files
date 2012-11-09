@@ -1,4 +1,4 @@
-ExitOnForwardFailure yes
+#ExitOnForwardFailure yes
 
 Host home
 	HostName www.lehnerstudios.com
@@ -33,3 +33,7 @@ Host cycle2
 Host cs cycle3
 	User clehner
 	HostName cycle3.csug.rochester.edu
+
+Host mc
+	HostName 198.12.127.206
+	User root

@@ -2,6 +2,7 @@ symlinks = \
 	gitconfig \
 	gitignore \
 	screenrc \
+	tmux.conf \
 	vim \
 	gvimrc \
 	vimrc \

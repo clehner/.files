@@ -70,11 +70,11 @@ autocmd VimResized * exe "normal! \<c-w>="
 set laststatus=2
 
 " relative line numbers
-if exists("&relativenumber")
-  set relativenumber
-else
-  set number
-endif
+"if exists("&relativenumber")
+  "set relativenumber
+"else
+  "set number
+"endif
 
 " display position in file
 set ruler
@@ -99,6 +99,9 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Ctrl-L is remapped, so use leader-L
+nnoremap <leader>l :redraw!<cr>
+
 " netbeans
 noremap <c-s> :nbs<cr>
 
@@ -115,3 +118,9 @@ map Q gq
 
 " Start Pathogen
 call pathogen#infect()
+
+" Allow Mac line endings
+set ffs=unix,mac
+
+" Easy executifying
+noremap <M-x> :!chmod +x %<cr>
