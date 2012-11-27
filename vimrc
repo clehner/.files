@@ -18,17 +18,9 @@ set smartcase " unless it contains uppercase letters
 set hlsearch " highlight matches
 set incsearch " incremental search
 
-" keep space around the cursor
-set scrolloff=3
-
-" invisible characters
-"set list
-set listchars=tab:‣\ ,trail:· " show tabs and trailing spaces
-
 " handling of long lines
 "set nowrap
 set wrap
-set listchars+=precedes:←,extends:→
 set sidescroll=1 " scroll horizontally in 1 character steps
 set sidescrolloff=10 " keep some space on the side
 

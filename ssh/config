@@ -37,3 +37,7 @@ Host cs cycle3
 Host mc
 	HostName 198.12.127.206
 	User root
+
+Host vol
+	HostName volume68k.org
+	User cel
