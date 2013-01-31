@@ -111,8 +111,21 @@ map Q gq
 " Start Pathogen
 call pathogen#infect()
 
-" Allow Mac line endings
-set ffs=unix,mac
+" Liberal line endings
+set ffs=unix,mac,dos
 
 " Easy executifying
-noremap <M-x> :!chmod +x %<cr>
+noremap <leader>x :!chmod +x %<cr><cr>
+
+" Open vimrc
+noremap <leader>; :tabe ~/.vimrc<cr>
+" Save and reload vimrc
+noremap <leader>. :w<cr>:so ~/.vimrc<cr>
+
+let g:syntastic_java_javac_autoload_maven_classpath = 0
+let g:syntastic_java_javac_config_file_enabled = 1
+
+":setlocal makeprg=javac\ %
+" Easy make
+noremap <leader>m :make<cr><cr>
+
