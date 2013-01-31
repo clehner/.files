@@ -10,7 +10,7 @@ Host cel
 	User cel
 	Port 80
 
-Host mb
+Host mb dev
 	HostName dev.celehner.com
 	User clehner11
 
@@ -42,3 +42,24 @@ Host mc
 Host vol
 	HostName volume68k.org
 	User cel
+
+Host eee
+	User clehner
+	#HostName 128.151.220.82
+	HostName fc5b:00a6:0d7e:7fdb:c501:0ec5:fba6:1e24
+
+Host roc
+	User clehner
+	HostName rochack.org
+
+Host rochako
+	User rochako
+	HostName rochako.rochack.org
+
+Host buyvm
+	HostName 198.98.53.105
+	User root
+
+Host ipod
+	HostName ipod.celehner.com
+	User mobile
