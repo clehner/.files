@@ -8,6 +8,7 @@ Host home
 Host cel
 	HostName celehner.com
 	User cel
+	Port 80
 
 Host mb
 	HostName dev.celehner.com
@@ -35,7 +36,7 @@ Host cs cycle3
 	HostName cycle3.csug.rochester.edu
 
 Host mc
-	HostName 198.12.127.206
+	HostName rosscraft.org
 	User root
 
 Host vol
