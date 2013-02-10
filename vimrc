@@ -83,6 +83,8 @@ nnoremap <C-l> <C-w>l
 " Use the arrows to do something useful
 map <right> :bn<cr>
 map <left> :bp<cr>
+map <up> 10<c-y>
+map <down> 10<c-e>
 
 " Set leader to ,
 let mapleader = ","
