@@ -125,7 +125,14 @@ noremap <leader>. :w<cr>:so ~/.vimrc<cr>
 let g:syntastic_java_javac_autoload_maven_classpath = 0
 let g:syntastic_java_javac_config_file_enabled = 1
 
+" Shortcuts for jumping through errors (location list)
+map [l :lprev<cr>
+map ]l :lnext<cr>
+
 ":setlocal makeprg=javac\ %
 " Easy make
 noremap <leader>m :make<cr><cr>
+
+" Paste from X Clipboard (hack)
+noremap <leader>v :.!xsel<cr>
 
