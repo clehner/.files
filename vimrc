@@ -138,3 +138,5 @@ noremap <leader>m :make<cr><cr>
 " Paste from X Clipboard (hack)
 noremap <leader>v :.!xsel<cr>
 
+" Closetag
+:au Filetype html,xml,xsl source ~/.vim/bundle/closetag/plugin/closetag.vim
