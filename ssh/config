@@ -10,9 +10,13 @@ Host cel
 	User cel
 	Port 80
 
-Host mb dev
+Host dev
 	HostName dev.celehner.com
-	User clehner11
+	User clehner
+
+Host mb
+	HostName mb.celehner.com
+	User clehner
 
 Host imac
     User clehner
