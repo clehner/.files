@@ -1,7 +1,5 @@
 set nocompatible
 
-filetype plugin indent on
-
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 " enable modeline for all setups
@@ -39,6 +37,9 @@ set shiftwidth=4
 set shiftround " round indentation for > and < commands
 set autoindent " retain indentation level
 set smartindent
+
+" indentation by format
+filetype plugin indent on
 
 " behaviour of auto formatting
 set formatoptions+=r " insert comment leader after <Enter> in insert mode
@@ -85,6 +86,10 @@ map <right> :bn<cr>
 map <left> :bp<cr>
 map <up> 10<c-y>
 map <down> 10<c-e>
+
+" Use plus/minus for numbers
+map + <c-a>
+map - <c-x>
 
 " Set leader to ,
 let mapleader = ","
@@ -140,3 +145,65 @@ noremap <leader>v :.!xsel<cr>
 
 " Closetag
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" remove man lookup
+vnoremap K gk
+nnoremap K gk
+
+" Make the wildcard menu work like bash
+set wildmenu
+set wildmode=longest,list
+
+" make wildcard menu ignore binary files
+set wildignore+=*.a,*.o,*.bmp,*.gif,*.ico,*.jpg,*.png,*~,*.swp,*.tmp,*.class
+
+" Status
+set laststatus=2
+set statusline=%f%m%r\ %l:%c
+
+" Toggle line numbers
+:nmap <leader>n :setlocal number!<cr>
+
+" Enter paste mode
+:nmap <leader>o :set paste!<cr>
+
+" Toggle search highlighting and jumping
+:nmap <leader>q :set hlsearch!<cr>:set incsearch!<cr>
+
+":nmap ; :CtrlPBuffer<CR>
+
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+":let g:ctrlp_map = '<leader>p'
+:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_match_window_reversed = 0
+:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+:let g:ctrlp_working_path_mode = 0
+:let g:ctrlp_dotfiles = 0
+:let g:ctrlp_switch_buffer = 0
+
+" NERDTree
+:nmap <leader>e :NERDTreeToggle<CR>
+
+" Color terminal
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
+" Tab stops
+" http://statico.github.com/vim.html
+:nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<cr>
+:nmap <leader>T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<cr>
+:nmap <leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<cr>
+:nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<cr>
+
+" Toggle line wrap
+:nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
+
+" Disable automatic folding
+set nofoldenable
+set foldmethod=indent
+set foldlevel=20
+set foldlevelstart=20
+
+:nmap <leader>c :CoffeeCompile<cr>
