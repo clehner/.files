@@ -8,7 +8,7 @@ Host home
 Host cel
 	HostName celehner.com
 	User cel
-	Port 80
+	#Port 80
 
 Host dev
 	HostName dev.celehner.com
