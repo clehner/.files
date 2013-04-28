@@ -22,7 +22,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # floating terminal
-bindsym $mod+Shift+Return exec uxterm -bg DarkRed -title redterm
+bindsym $mod+Shift+Return exec xterm -bg DarkRed -title redterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -208,7 +208,7 @@ bindsym $mod+m exec xalsamixer
 # google chrome
 bindsym $mod+g exec google-chrome
 
-exec xscreensaver &
+exec --no-startup-id xscreensaver &
 bindsym $mod+Shift+S exec xscreensaver-command -l
 
 # Create Log out, Reboot, Poweroff bindings
