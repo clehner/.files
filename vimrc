@@ -208,3 +208,5 @@ nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 nmap <leader>c :CoffeeCompile<cr>
 
+" Allow scrolling with mouse-wheel
+:set mouse=a
