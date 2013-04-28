@@ -144,7 +144,7 @@ noremap <leader>m :make<cr><cr>
 noremap <leader>v :.!xsel<cr>
 
 " Closetag
-:au Filetype html,xml,xsl source ~/.vim/bundle/closetag/plugin/closetag.vim
+au Filetype html,xml,xsl source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " remove man lookup
 vnoremap K gk
@@ -162,25 +162,25 @@ set laststatus=2
 set statusline=%f%m%r\ %l:%c
 
 " Toggle line numbers
-:nmap <leader>n :setlocal number!<cr>
+nmap <leader>n :setlocal number!<cr>
 
 " Enter paste mode
-:nmap <leader>o :set paste!<cr>
+nmap <leader>o :set paste!<cr>
 
 " Toggle search highlighting and jumping
-:nmap <leader>q :set hlsearch!<cr>:set incsearch!<cr>
+nmap <leader>q :set hlsearch!<cr>:set incsearch!<cr>
 
 ":nmap ; :CtrlPBuffer<CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 ":let g:ctrlp_map = '<leader>p'
-:let g:ctrlp_match_window_bottom = 0
-:let g:ctrlp_match_window_reversed = 0
-:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-:let g:ctrlp_working_path_mode = 0
-:let g:ctrlp_dotfiles = 0
-:let g:ctrlp_switch_buffer = 0
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
 
 " NERDTree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -192,18 +192,19 @@ endif
 
 " Tab stops
 " http://statico.github.com/vim.html
-:nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<cr>
-:nmap <leader>T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<cr>
-:nmap <leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<cr>
-:nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<cr>
+nmap <leader>t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<cr>
+nmap <leader>T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<cr>
+nmap <leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<cr>
+nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<cr>
 
 " Toggle line wrap
-:nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
+nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 " Disable automatic folding
-set nofoldenable
-set foldmethod=indent
-set foldlevel=20
-set foldlevelstart=20
+"set nofoldenable
+"set foldmethod=indent
+"set foldlevel=20
+"set foldlevelstart=20
 
-:nmap <leader>c :CoffeeCompile<cr>
+nmap <leader>c :CoffeeCompile<cr>
+
