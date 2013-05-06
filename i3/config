@@ -19,10 +19,10 @@ font pango:Virtue 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # floating terminal
-bindsym $mod+Shift+Return exec xterm -bg DarkRed -title redterm
+bindsym $mod+Shift+Return exec --no-startup-id xterm -bg DarkRed -title redterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -180,11 +180,12 @@ bar {
 #client.unfocused        #333333 #222222 #888888
 #client.urgent           #2f343a #900000 #ffffff
 
-# Take a screenshot upon pressing $mod+x (select an area)
-#bindsym $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
+# Take a screenshot upon pressing PrintScreen
+bindsym Print exec --no-startup-id gnome-screenshot
 
-# Take a screenshot upon pressing $mod+x
-bindsym $mod+x exec gnome-screenshot
+# Take a screenshot upon pressing $mod+Print (select an area)
+#bindsym $mod+Print exec --no-startup-id import /tmp/latest-screenshot.png
+bindsym $mod+Print exec --no-startup-id gnome-screenshot -a
 
 # enable floating mode for special apps
 for_window [class="BasiliskII"] floating enable
@@ -193,6 +194,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [title="xalsamixer"] floating enable
 for_window [title="redterm"] floating enable
+for_window [class="XClock"] floating enable
 
 # border only, no window title bar
 new_window 1pixel
