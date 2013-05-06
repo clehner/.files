@@ -82,14 +82,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Use the arrows to do something useful
-map <right> :bn<cr>
-map <left> :bp<cr>
-map <up> 10<c-y>
-map <down> 10<c-e>
+nmap <Right> :bn<cr>
+nmap <Left> :bp<cr>
+nmap <Up> 10<c-y>
+nmap <Down> 10<c-e>
 
 " Use plus/minus for numbers
-map + <c-a>
-map - <c-x>
+nmap + <c-a>
+nmap - <c-x>
 
 " Set leader to ,
 let mapleader = ","
@@ -97,6 +97,9 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
+" Fast close buffer
+nmap <leader>d :bd<cr>
 
 " Ctrl-L is remapped, so use leader-L
 nnoremap <leader>l :redraw!<cr>
@@ -135,6 +138,10 @@ let g:syntastic_java_javac_config_file_enabled = 1
 " Shortcuts for jumping through errors (location list)
 map [l :lprev<cr>
 map ]l :lnext<cr>
+
+" Shortcuts for jumping through error list
+map [e :cprev<cr>
+map ]l :cnext<cr>
 
 ":setlocal makeprg=javac\ %
 " Easy make
