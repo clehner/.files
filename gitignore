@@ -7,4 +7,5 @@ tags
 .apdisk
 .couchapprc
 .*.swp
+.*.swo
 Session.vim
