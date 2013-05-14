@@ -119,7 +119,7 @@ syntax on
 map Q gq
 
 " Start Pathogen
-call pathogen#infect()
+silent! call pathogen#infect()
 
 " Liberal line endings
 set ffs=unix,mac,dos
@@ -215,5 +215,8 @@ nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 nmap <leader>c :CoffeeCompile<cr>
 
-" Allow scrolling with mouse-wheel
-:set mouse=a
+" mouse support
+if has("mouse")
+	set mouse=a
+	"set ttymouse=xterm2
+endif
