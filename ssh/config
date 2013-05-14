@@ -1,7 +1,7 @@
 #ExitOnForwardFailure yes
 
 Host home
-	HostName www.lehnerstudios.com
+	HostName home.lehnerstudios.com
 	User cel
 	Port 323
 
@@ -21,7 +21,7 @@ Host mb
 Host imac
     User clehner
     Port 324
-    HostName www.lehnerstudios.com
+    HostName home.lehnerstudios.com
 
 Host sdf
 	User clehner
