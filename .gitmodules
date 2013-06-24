@@ -19,3 +19,6 @@
 [submodule "vim/bundle/visSum"]
 	path = vim/bundle/visSum
 	url = git://github.com/vim-scripts/visSum.vim.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
