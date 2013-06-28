@@ -134,6 +134,7 @@ noremap <leader>. :w<cr>:so ~/.vimrc<cr>
 
 let g:syntastic_java_javac_autoload_maven_classpath = 0
 let g:syntastic_java_javac_config_file_enabled = 1
+let g:syntastic_always_populate_loc_list=1
 
 " Shortcuts for jumping through errors (location list)
 map [l :lprev<cr>
@@ -141,7 +142,7 @@ map ]l :lnext<cr>
 
 " Shortcuts for jumping through error list
 map [e :cprev<cr>
-map ]l :cnext<cr>
+map ]e :cnext<cr>
 
 ":setlocal makeprg=javac\ %
 " Easy make
