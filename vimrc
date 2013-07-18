@@ -216,12 +216,6 @@ nmap <leader>r :setlocal wrap!<cr>:setlocal wrap?<cr>
 
 nmap <leader>c :CoffeeCompile<cr>
 
-" mouse support
-if has("mouse")
-	set mouse=a
-	"set ttymouse=xterm2
-endif
-
 function! CloseHiddenBuffers()
 	" Tableau pour memoriser la visibilite des buffers
 	let visible = {}
