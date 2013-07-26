@@ -6,6 +6,7 @@ symlinks = \
 	vim \
 	gvimrc \
 	vimrc \
+	jshintrc \
 	i3 \
 	ssh/authorized_keys \
 	ssh/config
