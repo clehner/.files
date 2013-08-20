@@ -210,7 +210,7 @@ bindsym $mod+m exec xalsamixer
 # google chrome
 bindsym $mod+g exec google-chrome
 
-exec --no-startup-id xscreensaver &
+exec --no-startup-id xscreensaver -no-splash &
 bindsym $mod+Shift+S exec xscreensaver-command -l
 
 # Create Log out, Reboot, Poweroff bindings
