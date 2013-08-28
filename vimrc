@@ -178,6 +178,9 @@ nmap <leader>o :set paste!<cr>
 " Toggle search highlighting and jumping
 nmap <leader>q :set hlsearch!<cr>:set incsearch!<cr>
 
+" Press escape to clear highlights
+nnoremap <esc> :noh<return><esc>
+
 ":nmap ; :CtrlPBuffer<CR>
 
 " CtrlP
