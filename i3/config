@@ -114,9 +114,6 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym Control+Mod1+Delete exit
 
-# Exit i3 (logout)
-bindsym $mod+Shift+E exec ./.i3/exit_menu.sh
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	# These bindings trigger as soon as you enter the resize mode
@@ -220,14 +217,15 @@ exec --no-startup-id xscreensaver -no-splash &
 bindsym $mod+Shift+S exec xscreensaver-command -l
 
 # Create Log out, Reboot, Poweroff bindings
-#mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
-#        bindsym $mod+r exec reboot
-#        bindsym $mod+l exit
-#        bindsym $mod+p exec poweroff
-#
-#        # back to normal: Enter or Escape
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-#
-#bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
+mode "Exit (S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
+        bindsym $mod+s exec .i3/suspend
+        bindsym $mod+r exec reboot
+        bindsym $mod+l exit
+        bindsym $mod+p exec poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+E mode "Exit (S)uspend, (L)ogout, (R)eboot, (P)oweroff"
