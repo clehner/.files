@@ -179,7 +179,7 @@ nmap <leader>o :set paste!<cr>
 nmap <leader>q :set hlsearch!<cr>:set incsearch!<cr>
 
 " Press escape to clear highlights
-nnoremap <esc> :noh<return><esc>
+"nnoremap <esc> :noh<return><esc>
 
 ":nmap ; :CtrlPBuffer<CR>
 
