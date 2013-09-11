@@ -1,4 +1,3 @@
 #!/bin/sh
-i3-msg mode default
 i3lock -i .i3/i3lock-bg.png &&
 dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend
