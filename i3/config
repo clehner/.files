@@ -60,6 +60,9 @@ bindsym $mod+semicolon split h
 # split in vertical orientation
 bindsym $mod+v split v
 
+# switch layout
+bindsym $mod+$alt+space layout toggle all
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
@@ -186,6 +189,7 @@ bindsym Print exec --no-startup-id gnome-screenshot
 # Take a screenshot upon pressing $mod+Print (select an area)
 #bindsym $mod+Print exec --no-startup-id import /tmp/latest-screenshot.png
 bindsym $mod+Print exec --no-startup-id gnome-screenshot -a
+bindsym $mod+Shift+A exec --no-startup-id gnome-screenshot
 
 # enable floating mode for special apps
 for_window [class="BasiliskII"] floating enable
@@ -195,9 +199,11 @@ for_window [class="Vncviewer"] floating enable
 for_window [title="ALSA Mixer"] floating enable
 for_window [title="redterm"] floating enable
 for_window [class="XClock"] floating enable
-for_window [class="(?i)wicd-client.py"] floating enable
-for_window [class="(?i)system-config-printer"] floating enable
-for_window [class="I3exit"] floating enable
+for_window [class="Wicd-client.py"] floating enable
+for_window [class="System-config-printer"] floating enable
+for_window [class="I3-?exit"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
 
 # border only, no window title bar
 new_window 1pixel
@@ -208,13 +214,29 @@ bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
 # floating volume
-bindsym $mod+m exec xalsamixer
+bindsym $mod+m exec alsamixergui
 
-# google chrome
-bindsym $mod+g exec google-chrome
+# apps
+bindsym $mod+Shift+M exec pavucontrol
+bindsym $mod+b exec chromium
+bindsym $mod+g exec gvim
 
 exec --no-startup-id xscreensaver -no-splash &
 bindsym $mod+Shift+S exec xscreensaver-command -l
+#exec --no-startup-id xautolock -time 10 -locker "i3lock -d -i .i3/i3lock-bg.png" &
+#bindsym $mod+Shift+S exec "xautolock -locknow"
+bindsym $mod+Shift+$alt+S exec i3lock -d -i .i3/i3lock-bg.png
+
+# Configuration loading and Daemons
+exec --no-startup-id syndaemon -t -k -i 1 -d
+exec --no-startup-id dunst -config .i3/dunstrc
+exec --no-startup-id nm-applet &
+exec --no-startup-id clipit &
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id xfce4-panel &
+
+exec --no-startup-id setxkbmap -option caps:swapescape
+exec --no-startup-id feh --bg-fill .i3/desktop-bg.jpg
 
 # Create Log out, Reboot, Poweroff bindings
 set $mode_system Exit (S)uspend, (L)ogout, (R)eboot, (P)oweroff
@@ -229,4 +251,4 @@ mode "$mode_system" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+E mode "Exit (S)uspend, (L)ogout, (R)eboot, (P)oweroff"
+bindsym $mod+Shift+E mode "$mode_system"
