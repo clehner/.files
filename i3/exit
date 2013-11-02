@@ -1,0 +1,28 @@
+#!/bin/bash
+
+desktop() {
+	dbus-send --system --print-reply --dest="org.freedesktop.$1"\
+		/org/freedesktop/$2 org.freedesktop.${2/\//.}.$3
+}
+
+case $1 in
+	lock)
+		i3lock -n -i ~/.i3/i3lock-bg.png
+		;;
+	suspend)
+		killall -SIGUSR1 dunst # pause notifications
+		i3lock -i ~/.i3/i3lock-bg.png
+		desktop UPower UPower Suspend
+		killall -SIGUSR2 dunst # resume notifications
+		;;
+	reboot)
+		desktop ConsoleKit ConsoleKit/Manager Restart
+		;;
+	poweroff)
+		desktop ConsoleKit ConsoleKit/Manager Stop
+		;;
+	*)
+		echo >&2 "Usage: $0 lock|suspend|reboot|poweroff"
+		exit 1
+esac
+
