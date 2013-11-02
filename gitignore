@@ -9,3 +9,6 @@ tags
 .*.swp
 .*.swo
 Session.vim
+*.o
+*.class
+Makefile.in
