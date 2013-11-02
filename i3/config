@@ -9,6 +9,7 @@ set $alt Mod1
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 #font -misc-fixed-medium-r-normal-*-13-*-*-*-*-70-iso10646-1
 #font pango:Virtue 10
+font pango:DejaVu Sans Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -267,7 +268,7 @@ exec --no-startup-id nitrogen --restore
 set $mode_system Exit (S)uspend, (L)ogout, (R)eboot, (P)oweroff
 mode "$mode_system" {
         bindsym s exec .i3/suspend, mode "default"
-        bindsym r exec reboot
+        bindsym r exec .i3/reboot, mode "default"
         bindsym l exit
         bindsym p exec poweroff
 
