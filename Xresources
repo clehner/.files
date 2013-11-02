@@ -1,0 +1,12 @@
+#include ".files/solarized-xresources/solarized"
+
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: sensible-browser
+URxvt.colorUL: #86a2be
+
+UXTerm*VT100.Translations:	#override Shift <Key>F29: scroll-back(1,line) \n\
+				    Shift <Key>F35: scroll-forw(1,line) \n\
+				    <Key>F29: scroll-back(1,halfpage) \n\
+				    <Key>F35: scroll-forw(1,halfpage) \n\
+					Ctrl Shift <KeyPress> C:  select-end(PRIMARY,CLIPBOARD,CUT_BUFFER0) \n\
+					Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY)
