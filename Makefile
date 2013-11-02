@@ -16,7 +16,8 @@ all: update-submodules
 install: all $(symlinks)
 
 update-submodules:
-	git submodule update --init
+	git submodule init
+	git submodule update --depth 1
 
 $(symlinks):
 	rm -rf ~/.$@
