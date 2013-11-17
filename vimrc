@@ -87,6 +87,9 @@ nmap <Left> :bp<cr>
 nmap <Up> 10<c-y>
 nmap <Down> 10<c-e>
 
+" Buffer navigation
+nnoremap <Leader>b :buffers<CR>:b<space>
+
 " Use plus/minus for numbers
 nmap + <c-a>
 nmap - <c-x>
@@ -97,6 +100,9 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
+" Save all
+command! W :wa
 
 " Fast close buffer
 nmap <leader>d :bd<cr>
