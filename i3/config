@@ -210,7 +210,9 @@ for_window [class="Gcolor2"] floating enable
 for_window [window_role="message_search"] floating enable
 for_window [class="Sushi-start"] border none
 for_window [class="Volumeicon"] [title="Preferences"] floating enable
+for_window [class="Thunar"] [title="File Operation Progress"] floating enable
 for_window [class="Nitrogen"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
 
 # border only, no window title bar
 new_window 1pixel
@@ -228,7 +230,7 @@ bindsym $mod+Shift+M exec pavucontrol
 bindsym $mod+b exec chromium
 bindsym $mod+g exec gvim
 
-exec --no-startup-id gnome-screensaver -no-splash &
+exec --no-startup-id gnome-screensaver &
 bindsym $mod+Shift+S exec gnome-screensaver-command --lock
 #exec --no-startup-id xscreensaver -no-splash &
 #bindsym $mod+Shift+S exec xscreensaver-command -l
