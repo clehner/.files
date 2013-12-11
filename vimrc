@@ -116,16 +116,16 @@ noremap <c-s> :nbs<cr>
 " Allow unsaved hidden buffers
 set hidden
 
-" colors!
-syntax on
-"set background=dark
-"colorscheme solarized
-
 " Use Q for formattting, not ex
 map Q gq
 
 " Start Pathogen
 silent! call pathogen#infect()
+
+" colors!
+syntax on
+set background=dark
+"colorscheme solarized
 
 " Liberal line endings
 set ffs=unix,mac,dos
