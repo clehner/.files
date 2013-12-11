@@ -183,6 +183,8 @@ client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused #333333 #333333 #888888 #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
 
+focus_follows_mouse no
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
