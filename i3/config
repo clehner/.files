@@ -165,7 +165,23 @@ bar {
 	#mode dock
 	#mode hide
 	#modifier $mod
+	colors {
+		separator #666666
+		background #222222
+		statusline #dddddd
+		focused_workspace #0088CC #0088CC #ffffff
+		active_workspace #333333 #333333 #ffffff
+		inactive_workspace #333333 #333333 #888888
+		urgent_workspace #2f343a #900000 #ffffff
+	}
 }
+
+# colors
+# class                 border  backgr. text    indicator
+client.focused #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -175,14 +191,6 @@ bindsym $mod+minus scratchpad show
 
 # Show the sup-mail scratchpad window, if any.
 #bindsym $mod+Shift+S [title="^Sup ::"] scratchpad show
-
-# colors
-# class                 border  backgr. text
-#client.focused          #4c7899 #285577 #ffffff
-#client.focused_inactive #333333 #5f676a #ffffff
-#client.unfocused        #333333 #222222 #888888
-#client.urgent           #2f343a #900000 #ffffff
-client.focused           #4c7899 #285577 #ffffff
 
 # Take a screenshot upon pressing PrintScreen
 bindsym Print exec --no-startup-id gnome-screenshot
