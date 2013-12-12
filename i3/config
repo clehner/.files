@@ -161,7 +161,7 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar
 bar {
-	status_command i3status -c .i3/status.conf
+	status_command .i3/status-wrapper -c .i3/status.conf
 	#mode dock
 	#mode hide
 	#modifier $mod
