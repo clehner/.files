@@ -308,3 +308,15 @@ fun! HtmlPaste() range
 
   "redraw!
 endfun
+
+" Allow toggling background
+map <F5> :call ToggleBg()<CR>
+function! ToggleBg()
+    if &background == 'dark'
+        set bg=light
+    else
+        set bg=dark
+    endif
+
+    "colo gruvbox
+endfunc
