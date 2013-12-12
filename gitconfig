@@ -1,3 +1,5 @@
+# vi: ft=gitconfig
+
 [core]
 	excludesfile = ~/.gitignore
 	quotepath = false
