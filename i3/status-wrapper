@@ -101,9 +101,15 @@ while (my (@rh_set) = $read_set->can_read()) {
 
 sub do_status {
     # Read status line, ignore a comma at the beginning if it exists.
-    my ($statusline) = (<STATUS> =~ /^,?\[(.*)\]/);
+    my $buf = <STATUS>;
+    if (!$buf) {
+        # i3status exited
+        die("\ni3status exited\n");
+    }
+    my ($statusline) = ($buf =~ /^,?\[(.*)\]/);
     # Prefix our own information.
-    $statusline = '{"full_text":"' . $btc_rate . '","name":"btc"},' . $statusline;
+    my $prepend = '{"full_text":"' . $btc_rate . '","name":"btc"}';
+    $statusline = $prepend . ',' . $statusline;
 
     # Output the line as JSON.
     print "[" . $statusline . "],\n";
