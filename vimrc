@@ -249,3 +249,62 @@ function! CloseHiddenBuffers()
 endfun
 
 command! Bdi :call CloseHiddenBuffers()
+
+" Personal Pastebin
+" Based on <http://connermcd.com/blog/2012/09/17/personal-pastebin-system/>
+" and http://dubstepdish.com/blog/2013/11/09/personal-pastebin-tool/
+com! -range=% HtmlPaste <line1>,<line2>call HtmlPaste()
+noremap <silent> gH :HtmlPaste<cr>
+fun! HtmlPaste() range
+  " *********
+  " Settings
+
+  let localPaste = "~/www/paste"
+  let remotePublic = "cel:www/paste"
+  let remotePasteUrl = "https://celehner.com/paste/"
+
+  " *********
+
+  let hasRN = &relativenumber
+  let hasNumber = &number
+  let oldBackground = &background
+  let oldColorScheme = g:colors_name
+
+  " unset line numbers - makes copy/paste easier for people
+  set norelativenumber
+  set nonumber
+
+  " set colorscheme
+  colors github
+  set bg=light
+
+  " convert to html
+  exe a:firstline.",".a:lastline."TOhtml"
+  " get a random alphanumeric string for the filename
+  let pasteName = system("cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1 | perl -ne 'chomp and print'")
+  " ensure that the local paste directory exists
+  exe "silent !mkdir -p " . localPaste
+  " save to local paste directory
+  exe "w! " . localPaste . "/" . pasteName
+  " delete buffer the above command creates
+  exe "bwipeout!"
+  " sync local/public paste
+  exe "silent !rsync -a --exclude=.*.swp " . localPaste . "/ " . remotePublic
+  exe "silent !rsync -a " . localPaste . "/" + pasteName + " " . remotePublic + "/"
+  " copy to clipboard
+  exe "silent !echo -n '" . remotePasteUrl . pasteName . "' | xsel"
+
+  " restore line numbers
+  if hasRN
+    set relativenumber
+  endif
+  if hasNumber
+    set number
+  endif
+
+  " restore colorscheme
+  exe "set bg=" . oldBackground
+  exe "colors " . oldColorScheme
+
+  "redraw!
+endfun
