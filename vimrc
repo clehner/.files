@@ -125,7 +125,7 @@ silent! call pathogen#infect()
 " colors!
 syntax on
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 
 " Liberal line endings
 set ffs=unix,mac,dos
@@ -309,14 +309,5 @@ fun! HtmlPaste() range
   "redraw!
 endfun
 
-" Allow toggling background
-map <F5> :call ToggleBg()<CR>
-function! ToggleBg()
-    if &background == 'dark'
-        set bg=light
-    else
-        set bg=dark
-    endif
-
-    "colo gruvbox
-endfunc
+" Allow toggling background (defined by solarized)
+call togglebg#map("<F5>")
