@@ -124,8 +124,13 @@ silent! call pathogen#infect()
 
 " colors!
 syntax on
-set background=dark
+"colorscheme kolor
 colorscheme solarized
+if has('gui_running')
+	set background=light
+else
+	set background=dark
+endif
 
 " Liberal line endings
 set ffs=unix,mac,dos
