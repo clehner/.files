@@ -1,0 +1,8 @@
+# weather in Rochester
+.i3/weather.pl USNY1232 4 30
+
+# BTC/USD ticker
+.i3/btct
+
+# regular i3status
+i3status -c .i3/status.conf

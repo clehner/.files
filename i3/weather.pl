@@ -4,9 +4,9 @@ use strict;
 use HTTP::Request;
 use LWP::UserAgent;
 
-my $city_code = 'USNY1232';
-my $days = 4;
-my $interval = 1800;
+my $city_code = $ARGV[0];
+my $days = +$ARGV[1] // 4;
+my $interval = ($ARGV[2] // 30) * 60;
 
 my $query = 'select item from weather.forecast where location="' . $city_code . '"';
 my $request = HTTP::Request->new(GET =>
@@ -18,6 +18,9 @@ $codes{$_} = 0 for qw(28 32 33 34 36);
 $codes{$_} = 1 for qw(19 20 21 22 23 24 25 26 27 28 29 30 44);
 $codes{$_} = 2 for qw(0 1 2 3 4 5 6 9 11 12 37 38 39 40 45 47);
 $codes{$_} = 3 for qw(7 8 10 13 14 15 16 17 18 35 41 42 43 46);
+
+# Don't buffer output
+$| = 1;
 
 sub get_icon {
 	# Return an unicode icon based on the forecast code and text

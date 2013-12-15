@@ -1,0 +1,184 @@
+#!/usr/bin/env perl
+# vim:ts=4:sw=4:expandtab
+#
+# i3bar-mux
+# © 2013 Charles Lehner, MIT License
+#
+# a tool for combining i3bar streams
+
+use strict;
+use warnings;
+use IO::Select;
+
+# Don't buffer output
+$| = 1;
+
+# stream format states
+my $format_i3bar_start = 1;
+my $format_i3bar = 2;
+my $format_plain = 3;
+
+# string to identify the i3bar protocol
+my $i3bar_header = '{"version":1}';
+
+# file handles for each command
+my @files;
+
+# status line for each command (by file handle)
+my %status_lines;
+
+# output format for each command
+my %status_formats;
+
+# handle set for reading
+my $read_set = new IO::Select();
+
+# we can take the commands as command line arguments
+# or read them from a config file if the -c flag is used
+my $commands_file;
+if ($ARGV[0] eq '-c') {
+	$commands_file = $ARGV[1];
+}
+
+sub start_command {
+	my $command = shift;
+	open(my $fh, $command . '|') or die "$command: $!";
+	push @files, $fh;
+	$read_set->add($fh);
+	$status_lines{$fh} = '';
+}
+
+sub start_commands {
+	if ($commands_file) {
+		# read commands from file
+		open(CMD, '<', $commands_file) or die "open: $!";
+		while (<CMD>) {
+			chomp;
+			# skip comments and empty lines
+			if (/^[^#]./) {
+				start_command($_);
+			}
+		}
+		close(CMD);
+	} else {
+		# use commands from command line arguments
+		start_command($_) for (@ARGV);
+	}
+}
+
+sub stop_commands {
+	foreach my $fh (@files) {
+		# close file handles that we were listening on
+		if ($read_set->exists($fh)) {
+			$read_set->remove($fh);
+			$status_lines{$fh} = '';
+			# let the fh be closed automatically
+		}
+	}
+}
+
+# restart the commands on HUP
+$SIG{HUP} = sub {
+	stop_commands;
+	start_commands;
+};
+
+$SIG{PIPE} = sub { die "pipe broke" };
+
+sub got_json_status {
+	my ($rh, $buf) = @_;
+	($status_lines{$rh}) = ($buf =~ /^,?\[(.*)\]/);
+}
+
+sub got_plain_status {
+	my ($rh, $buf) = @_;
+
+	# escape for json output
+	$buf =~ s/["\\]/\\\0/g;
+
+	# set the json value
+	$status_lines{$rh} = "{\"full_text\":\"$buf\"}";
+}
+
+sub got_line {
+	my ($rh, $buf) = @_;
+
+	# get format of this stream
+	my $format = $status_formats{$rh} // 0;
+	if ($format == $format_i3bar) {
+		# pass through the json object in i3bar format
+		got_json_status($rh, $buf);
+
+	} elsif ($format == $format_i3bar_start) {
+		# this should be the opening of the infinite json array
+		if ($buf ne '[') {
+			# it seems to be a regular status line
+			got_json_status($rh, $buf);
+		}
+		$status_formats{$rh} = $format_i3bar;
+
+	} elsif ($format == $format_plain) {
+		# turn the plain text into i3bar/json
+		got_plain_status($rh, $buf);
+
+	} else {
+		# detect output format
+		if ($buf eq $i3bar_header) {
+			# got an i3bar version string
+			$format = $format_i3bar_start;
+		} else {
+			# got a regular string
+			$format = $format_plain;
+			got_plain_status($rh, $buf);
+		}
+		$status_formats{$rh} = $format;
+	}
+
+}
+
+# start the commands
+start_commands;
+
+# print the i3bar protocol header
+print $i3bar_header . "\n";
+
+# start printing the infinite json array
+print "[\n";
+
+# get each handle with data
+while (1) {
+	my (@rh_set) = $read_set->can_read;
+	foreach my $rh (@rh_set) {
+		my $buf;
+		if (sysread($rh, $buf, 1024)) {
+			chomp $buf;
+
+			# manually split the buf into lines
+			# because <> does buffering
+			got_line($rh, $_) for split("\n", $buf);
+
+		} else {
+			# file handle closed
+			$read_set->remove($rh);
+			$status_lines{$rh} = '';
+			delete $status_formats{$rh};
+		}
+	}
+
+	# generate the combined status line
+	# excluding empty statuses
+	my @statuses = grep { $_ } map { $status_lines{$_} } @files;
+
+	if (!@statuses) {
+		# boring
+		next;
+	}
+
+	# print the status line
+	print "[" . join(",", @statuses) . "],\n";
+}
+
+# end the infinite array
+print "]\n";
+
+close($_) for @files;
