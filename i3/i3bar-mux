@@ -47,7 +47,7 @@ my $read_set = new IO::Select();
 # we can take the commands as command line arguments
 # or read them from a config file if the -c flag is used
 my $commands_file;
-if ($ARGV[0] eq '-c') {
+if ($#ARGV > 0 and $ARGV[0] eq '-c') {
 	$commands_file = $ARGV[1];
 }
 
@@ -157,7 +157,7 @@ print $i3bar_header . "\n";
 print "[\n";
 
 # get each handle with data
-while (1) {
+while ($read_set->count gt 0) {
 	my (@rh_set) = $read_set->can_read;
 	foreach my $rh (@rh_set) {
 		my $buf;
@@ -179,11 +179,6 @@ while (1) {
 	# generate the combined status line
 	# excluding empty statuses
 	my @statuses = grep { $_ } map { $status_lines{$_} } @files;
-
-	if (!@statuses) {
-		# boring
-		next;
-	}
 
 	# print the status line
 	print "[" . join(",", @statuses) . "],\n";
