@@ -2,9 +2,20 @@
 # vim:ts=4:sw=4:expandtab
 #
 # i3bar-mux
+# a tool for combining i3bar streams
+#
 # © 2013 Charles Lehner, MIT License
 #
-# a tool for combining i3bar streams
+# i3bar-mux runs commands and combines their output into one status line
+#
+# Usage:
+#
+# Use arguments as commands.
+#	i3bar-mux [COMMAND]...
+#
+# Read commands from a config file, one command per line:
+#	i3bar-mux -c FILE
+#
 
 use strict;
 use warnings;
