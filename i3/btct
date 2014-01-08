@@ -1,8 +1,0 @@
-#!/bin/bash
-
-while true
-do
-    ncat celehner.com 9980 -i 60 -w 15
-    sleep 10
-done 2>&-|
-    sed -u 's/\(.*\)\..*/$\1/'

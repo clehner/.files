@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "i3/i3bar-mux"]
+	path = i3/i3bar-mux
+	url = https://github.com/clehner/i3bar-mux.git

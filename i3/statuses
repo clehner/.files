@@ -1,8 +1,13 @@
-# weather in Rochester
-.i3/weather.pl USNY1232 4 30
+# weather in Rochester, NY
+#.i3/weather.pl USNY1232 4 30
+# Weather in Orient, NY
+.i3/i3bar-mux/weather.pl USNY1072 4 30
 
 # BTC/USD ticker
-.i3/btct
+.i3/i3bar-mux/socket.pl celehner.com 9980 | sed -u -e 's/^\(.*\)\.[0-9]*$/\$\1/'
 
 # regular i3status
 i3status -c .i3/status.conf
+
+# clickable calendar
+.i3/i3bar-mux/calendar.pl
