@@ -165,6 +165,9 @@ noremap <leader>v :.!xsel<cr>
 " Closetag
 au Filetype html,xml,xsl source ~/.vim/bundle/closetag/plugin/closetag.vim
 
+" Claws-Mail
+au BufNewFile,BufRead ~/.claws-mail/tmp/tmpmsg.* set ft=mail
+
 " remove man lookup
 vnoremap K gk
 nnoremap K gk
