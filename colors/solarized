@@ -1,0 +1,102 @@
+! Solarized color scheme for the X Window System
+!
+! http://ethanschoonover.com/solarized
+
+
+! Common
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+
+! Dark
+
+#define D_base03        #002b36
+#define D_base02        #073642
+#define D_base01        #586e75
+#define D_base00        #657b83
+!#define D_base0         #839496
+#define D_base0         #efefef
+#define D_base1         #93a1a1
+#define D_base2         #eee8d5
+#define D_base3         #fdf6e3
+
+
+! Light
+
+#define L_base03        #fdf6e3
+#define L_base02        #eee8d5
+#define L_base01        #93a1a1
+#define L_base00        #839496
+#define L_base0         #657b83
+#define L_base1         #586e75
+#define L_base2         #073642
+#define L_base3         #002b36
+
+
+! To only apply colors to your terminal, for example, prefix
+! the color assignment statement with its name. Example:
+!
+! URxvt*background:            D_base03
+
+UXTerm*background:              D_base03
+UXTerm*foreground:              D_base0
+!UXTerm*foreground:              #efefef
+UXTerm*fading:                  40
+UXTerm*fadeColor:               D_base03
+UXTerm*cursorColor:             D_base1
+UXTerm*pointerColorBackground:  D_base01
+UXTerm*pointerColorForeground:  D_base1
+
+UXTerm*color0:                  D_base02
+UXTerm*color1:                  S_red
+UXTerm*color2:                  S_green
+UXTerm*color3:                  S_yellow
+UXTerm*color4:                  S_blue
+UXTerm*color5:                  S_magenta
+UXTerm*color6:                  S_cyan
+UXTerm*color7:                  D_base2
+UXTerm*color9:                  S_orange
+UXTerm*color8:                  D_base03
+UXTerm*color10:                 D_base01
+UXTerm*color11:                 D_base00
+UXTerm*color12:                 D_base0
+UXTerm*color13:                 S_violet
+UXTerm*color14:                 D_base1
+UXTerm*color15:                 D_base3
+
+
+!
+! Light
+!
+
+UXTermLight*background:              L_base03
+UXTermLight*foreground:              L_base0
+UXTermLight*fading:                  40
+UXTermLight*fadeColor:               L_base03
+UXTermLight*cursorColor:             L_base1
+UXTermLight*pointerColorBackground:  L_base01
+UXTermLight*pointerColorForeground:  L_base1
+
+UXTermLight*color0:                  L_base02
+UXTermLight*color1:                  S_red
+UXTermLight*color2:                  S_green
+UXTermLight*color3:                  S_yellow
+UXTermLight*color4:                  S_blue
+UXTermLight*color5:                  S_magenta
+UXTermLight*color6:                  S_cyan
+UXTermLight*color7:                  L_base2
+UXTermLight*color9:                  S_orange
+UXTermLight*color8:                  L_base03
+UXTermLight*color10:                 L_base01
+UXTermLight*color11:                 L_base00
+UXTermLight*color12:                 L_base0
+UXTermLight*color13:                 S_violet
+UXTermLight*color14:                 L_base1
+UXTermLight*color15:                 L_base3

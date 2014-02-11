@@ -1,10 +1,16 @@
-#include ".files/solarized-xresources/solarized"
+#include ".files/colors/solarized"
+#include ".files/colors/erosionedit"
+#include ".files/urxvtconf"
+#include ".files/Xstuff"
 
-URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: sensible-browser
-URxvt.colorUL: #86a2be
+*faceName: Monospace
+*faceSize: 9
+*metaSendsEscape: true
 
-UXTerm*VT100.Translations:	#override Shift <Key>F29: scroll-back(1,line) \n\
+!UXTermLight*faceName: Liberation Mono
+!UXTermLight*faceSize: 10
+
+*VT100.Translations:	#override Shift <Key>F29: scroll-back(1,line) \n\
 				    Shift <Key>F35: scroll-forw(1,line) \n\
 				    <Key>F29: scroll-back(1,halfpage) \n\
 				    <Key>F35: scroll-forw(1,halfpage) \n\
