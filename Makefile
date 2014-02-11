@@ -12,6 +12,7 @@ symlinks = \
 	config/bspwm \
 	config/sxhkd \
 	config/redshift.conf \
+	compton.conf \
 	ssh/authorized_keys \
 	ssh/config
 
