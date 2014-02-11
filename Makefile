@@ -9,6 +9,8 @@ symlinks = \
 	jshintrc \
 	Xresources \
 	i3 \
+	config/bspwm \
+	config/sxhkd \
 	config/redshift.conf \
 	ssh/authorized_keys \
 	ssh/config
