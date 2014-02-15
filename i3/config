@@ -215,7 +215,7 @@ for_window [class="Wicd-client.py"] floating enable
 for_window [class="System-config-printer"] floating enable
 for_window [class="I3-?exit"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
+for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 for_window [class="Gcolor2"] floating enable
 for_window [window_role="message_search"] floating enable
 for_window [class="Sushi-start"] border none
@@ -223,6 +223,17 @@ for_window [class="Volumeicon"] [title="Preferences"] floating enable
 for_window [class="Thunar"] [title="File Operation Progress"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
+for_window [title="Electrum - Invoice"] floating enable
+for_window [window_role="gtkutils"] floating enable
+for_window [class="Gsimplecal"] floating enable; border none; move absolute position 1000px 620px
+for_window [class="Maya-calendar"] border none
+
+for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
+for_window [class="Jitsi"] [title="win*"] border none
+
+# assign apps to workspaces
+assign [class="Claws-mail"] → 2
+assign [class="UXTerm" instance="irc"] → 4
 
 # border only, no window title bar
 new_window 1pixel
