@@ -34,3 +34,6 @@
 [submodule "i3/i3bar-mux"]
 	path = i3/i3bar-mux
 	url = https://github.com/clehner/i3bar-mux.git
+[submodule "vim/bundle/vim-hemisu"]
+	path = vim/bundle/vim-hemisu
+	url = https://github.com/noahfrederick/vim-hemisu.git
