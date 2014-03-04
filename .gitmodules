@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-hemisu"]
 	path = vim/bundle/vim-hemisu
 	url = https://github.com/noahfrederick/vim-hemisu.git
+[submodule "vim/bundle/vim-ledger"]
+	path = vim/bundle/vim-ledger
+	url = https://github.com/ledger/vim-ledger.git
